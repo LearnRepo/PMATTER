@@ -15,41 +15,45 @@ public class ForceVector
 		{
 			if(particle.getID()!=args[i].getID() && particle.PC.printX()-args[i].PC.printX() != 0)
 			{
-			angle[i] = (particle.PC.printY()-args[i].PC.printY())/
-			(particle.PC.printX()-args[i].PC.printX());
+			angle[i] = Math.atan((particle.PC.printY()-args[i].PC.printY())/
+			(particle.PC.printX()-args[i].PC.printX()));
 			}
 		}
 		for(int i=0;i<args.length-1;i++)
 		{
 			if(particle.getID()!=args[i].getID())
 			{
-				if(particle.PC.printY()==args[i].PC.printY())
+				if(particle.PC.printY()==args[i].PC.printY() && particle.PC.printX()==args[i].PC.printX())
 				{
 					ForceY = ForceY + (this.G*particle.getMass()*args[i].getMass()/
 							Math.pow((particle.PC.printY()-args[i].PC.printY()),2)+
 							Math.pow((particle.PC.printX()-args[i].PC.printX()),2)
-							);
-				}
-				else
-				{
-					ForceY = ForceY + (this.G*particle.getMass()*args[i].getMass()/
-							Math.pow((particle.PC.printY()-args[i].PC.printY()),2)+
-							Math.pow((particle.PC.printX()-args[i].PC.printX()),2)
-							)*angle[i];
-				}
-				if(particle.PC.printX()==args[i].PC.printX())
-				{
-					ForceY = ForceY + (this.G*particle.getMass()*args[i].getMass()/
-							Math.pow((particle.PC.printY()-args[i].PC.printY()),2)+
-							Math.pow((particle.PC.printX()-args[i].PC.printX()),2)
-							);
-				}
-				else
-				{
+							)*Math.sqrt(2);
 					ForceX = ForceX + (this.G*particle.getMass()*args[i].getMass()/
 							Math.pow((particle.PC.printY()-args[i].PC.printY()),2)+
 							Math.pow((particle.PC.printX()-args[i].PC.printX()),2)
-							)*(1/angle[i]);
+							)*Math.sqrt(2);
+				}
+				if(particle.PC.printY()!=args[i].PC.printY() && particle.PC.printX()!=args[i].PC.printX())
+				{
+					ForceY = ForceY + (this.G*particle.getMass()*args[i].getMass()/
+							Math.pow((particle.PC.printY()-args[i].PC.printY()),2)+
+							Math.pow((particle.PC.printX()-args[i].PC.printX()),2)
+							)*Math.tan(angle[i]);
+					ForceX = ForceX + (this.G*particle.getMass()*args[i].getMass()/
+							Math.pow((particle.PC.printY()-args[i].PC.printY()),2)+
+							Math.pow((particle.PC.printX()-args[i].PC.printX()),2)
+							)*1/Math.tan(angle[i]);
+				}
+				if(particle.PC.printY()!=args[i].PC.printY() && particle.PC.printX()==args[i].PC.printX())
+				{
+					ForceY = ForceY + (this.G*particle.getMass()*args[i].getMass()/
+							Math.pow((particle.PC.printY()-args[i].PC.printY()),2));
+				}
+				if(particle.PC.printY()==args[i].PC.printY() && particle.PC.printX()!=args[i].PC.printX())
+				{
+					ForceX = ForceX + (this.G*particle.getMass()*args[i].getMass()/
+							Math.pow((particle.PC.printX()-args[i].PC.printX()),2));
 				}
 			}
 		}

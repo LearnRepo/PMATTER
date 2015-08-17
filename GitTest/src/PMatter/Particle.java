@@ -12,7 +12,6 @@ public class Particle
 		this.PC = PC;
 		particleID = "M"+counter;
 		counter+=1;
-		getParticleData();
 	}
 	public Particle(boolean gravity)
 	{

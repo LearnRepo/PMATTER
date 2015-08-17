@@ -14,12 +14,12 @@ public class Creator
 		p[0] = new Particle(true);
 		
 		ParticleCoordinate PC = new ParticleCoordinate();
-		PC.ParticleCoordinate(0, 384400000);
-		p[0] = new Particle(5.972*Math.pow(10, 24),PC);
+		PC.ParticleCoordinate(0,0);
+		p[0] = new Particle(1,PC);
 		
 		PC = new ParticleCoordinate();
-		PC.ParticleCoordinate(0, 0);
-		p[1] = new Particle(7.347*Math.pow(10, 22),PC);
+		PC.ParticleCoordinate(1, 1);
+		p[1] = new Particle(1,PC);
 		
 		// Random particle creator
 		/*Random rndGenerator = new Random();
