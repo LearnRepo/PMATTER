@@ -1,18 +1,18 @@
 package PMatter;
 
 public class ParticleCoordinate {
-	private int x;
-	private int y;
-	public void ParticleCoordinate(int x, int y)
+	private double x;
+	private double y;
+	public void ParticleCoordinate(double x, double y)
 	{
 		this.x = x;
 		this.y = y;
 	}
-	public int printX()
+	public double printX()
 	{
 		return this.x;
 	}
-	public int printY()
+	public double printY()
 	{
 		return this.y;
 	}

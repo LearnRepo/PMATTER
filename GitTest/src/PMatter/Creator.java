@@ -4,7 +4,7 @@ public class Creator
 {
 	public static void main(String [] args)
 	{
-		int numOfParticle = 10;
+		int numOfParticle = 2;
 		int counter;
 		Particle[] p = new Particle[numOfParticle];
 		
@@ -12,17 +12,32 @@ public class Creator
 		atm.Atmosphere("First Atmosphere");
 		
 		p[0] = new Particle(true);
-		Random rndGenerator = new Random();
+		
+		ParticleCoordinate PC = new ParticleCoordinate();
+		PC.ParticleCoordinate(0, 384400000);
+		p[0] = new Particle(5.972*Math.pow(10, 24),PC);
+		
+		PC = new ParticleCoordinate();
+		PC.ParticleCoordinate(0, 0);
+		p[1] = new Particle(7.347*Math.pow(10, 22),PC);
+		
+		// Random particle creator
+		/*Random rndGenerator = new Random();
 		for(counter=0;counter<numOfParticle;counter++)
 		{
 			//System.out.print();
 			ParticleCoordinate PC = new ParticleCoordinate();
-			PC.ParticleCoordinate(rndGenerator.nextInt(400),rndGenerator.nextInt(600));
-			p[counter] = new Particle(rndGenerator.nextInt(100),PC);
-		}
+			PC.ParticleCoordinate(rndGenerator.nextDouble()*100,rndGenerator.nextDouble()*100);
+			p[counter] = new Particle(rndGenerator.nextDouble()*100,PC);
+		}*/
 		for(counter=0;counter<numOfParticle;counter++)
 		{
 			p[counter].getParticleData();
 		}
+		
+		ForceVector FV = new ForceVector();
+		FV.calculateForce(p[1], p);
+		System.out.println(FV.getForce()+" "+FV.getAngle());
+		
 	}
 }

@@ -8,5 +8,4 @@ public class Atmosphere
 		this.AtmName = AtmName;
 		
 	}
-	
 }
