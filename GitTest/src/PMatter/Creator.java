@@ -24,6 +24,5 @@ public class Creator
 		{
 			p[counter].getParticleData();
 		}
-		System.out.println(atm.effectiveForce(p));
 	}
 }

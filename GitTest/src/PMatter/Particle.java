@@ -22,4 +22,12 @@ public class Particle
 	{
 		System.out.println(this.particleID+": "+this.mass+" & "+this.PC.printX()+", "+this.PC.printY());
 	}
+	public int getMass()
+	{
+		return this.mass;
+	}
+	public String getParticleID()
+	{
+		return particleID;
+	}
 }
