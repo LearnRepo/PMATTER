@@ -4,7 +4,7 @@ public class Creator
 {
 	public static void main(String [] args)
 	{
-		int numOfParticle = 2;
+		int numOfParticle = 4;
 		int counter;
 		Particle[] p = new Particle[numOfParticle];
 		
@@ -18,9 +18,16 @@ public class Creator
 		p[0] = new Particle(1,PC);
 		
 		PC = new ParticleCoordinate();
-		PC.ParticleCoordinate(1, 1);
+		PC.ParticleCoordinate(0, 1);
 		p[1] = new Particle(1,PC);
 		
+		PC = new ParticleCoordinate();
+		PC.ParticleCoordinate(1, 0);
+		p[2] = new Particle(1,PC);
+		
+		PC = new ParticleCoordinate();
+		PC.ParticleCoordinate(1, 1);
+		p[3] = new Particle(1,PC);
 		// Random particle creator
 		/*Random rndGenerator = new Random();
 		for(counter=0;counter<numOfParticle;counter++)
@@ -36,8 +43,20 @@ public class Creator
 		}
 		
 		ForceVector FV = new ForceVector();
-		FV.calculateForce(p[1], p);
-		System.out.println(FV.getForce()+" "+FV.getAngle());
+		FV.calculateForce(p[0], p);
+		System.out.println(FV.getForce()+" & "+FV.getForceX() + ", "+FV.getForceY() + " | "+FV.getAngle());
 		
+		FV = new ForceVector();
+		FV.calculateForce(p[1], p);
+		System.out.println(FV.getForce()+" & "+FV.getForceX() + ", "+FV.getForceY() + " | "+FV.getAngle());
+		
+		FV = new ForceVector();
+		FV.calculateForce(p[2], p);
+		System.out.println(FV.getForce()+" & "+FV.getForceX() + ", "+FV.getForceY() + " | "+FV.getAngle());
+		
+		FV = new ForceVector();
+		FV.calculateForce(p[3], p);
+		System.out.println(FV.getForce()+" & "+FV.getForceX() + ", "+FV.getForceY() + " | "+FV.getAngle());
 	}
+
 }
