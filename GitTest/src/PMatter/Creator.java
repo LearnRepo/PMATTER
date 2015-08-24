@@ -45,7 +45,7 @@ public class Creator
 			p[counter].getParticleData();
 		}
 		
-		ForceVector FV = new ForceVector();
+		/*ForceVector FV = new ForceVector();
 		FV.calculateForce(p[0], p);
 		System.out.println(FV.getForce()+" & "+FV.getForceX() + ", "+FV.getForceY() + " | "+FV.getAngle());
 		
@@ -62,7 +62,8 @@ public class Creator
 		System.out.println(FV.getForce()+" & "+FV.getForceX() + ", "+FV.getForceY() + " | "+FV.getAngle());
 		FV = new ForceVector();
 		FV.calculateForce(p[4], p);
-		System.out.println(FV.getForce()+" & "+FV.getForceX() + ", "+FV.getForceY() + " | "+FV.getAngle());
+		System.out.println(FV.getForce()+" & "+FV.getForceX() + ", "+FV.getForceY() + " | "+FV.getAngle());*/
+		ParticleTrajectory.simulateTrajectory(p, 10);
 	}
 
 }

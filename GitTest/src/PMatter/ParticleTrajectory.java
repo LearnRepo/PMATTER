@@ -1,35 +1,24 @@
 package PMatter;
 
 public class ParticleTrajectory {
-	private double timePrecision = 1;
 	
-	public void simulateTrajectory(Particle [] p)
+	public static void simulateTrajectory(Particle [] p, int iterate)
 	{
-		ForceVector[] FV = new ForceVector[p.length];
-		double initialVelocityX=0;
-		double initialVelocityY=0;
-		
+		ParticleDrift[] PD = new ParticleDrift[p.length];
 		for(int i=0;i<p.length;i++)
 		{
-			FV[i] = new ForceVector();
-			FV[i].calculateForce(p[i], p);
+			PD[i] = new ParticleDrift();
 		}
-		for(int i=0;i<p.length;i++)
+		while(iterate >= 0)
 		{
-			if(FV[i].getForceX()!=0)
-			{
-				
-			}
-			if(FV[i].getForceY()!=0)
-			{
-				
-			}
+			for(int i=0;i<p.length;i++)
+				PD[i].ParticleDrift(p[i],p);
+			iterate--;
 		}
-		
 	}
 	public void timePrecision(double time)
 	{
-		this.timePrecision=time;
+		ParticleDrift.timePrecision=time;
 	}
 	
 }
